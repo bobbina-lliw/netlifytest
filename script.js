@@ -8,7 +8,7 @@ if(form){
     const password = document.getElementById("password").value;
 
     try {
-      const response = await fetch("http://localhost:4000/api/v1/users/login", {
+      const response = await fetch("https://rendertest-gyk4.onrender.com/api/v1/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -41,7 +41,7 @@ if(profileBtn){
   profileBtn.addEventListener("click",async() =>{
     const token = localStorage.getItem("token");
     try{
-      const response = await fetch("http://localhost:4000/api/v1/users/profile", {
+      const response = await fetch("https://rendertest-gyk4.onrender.com/api/v1/users/profile", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,
