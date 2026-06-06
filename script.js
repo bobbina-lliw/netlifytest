@@ -1,5 +1,8 @@
-
+const render = "https://rendertest-gyk4.onrender.com";
+//const render = "http://127.0.0.1:4000"
+const token = localStorage.getItem("token");
 const form = document.getElementById("loginForm");
+
 
 if(form){
   form.addEventListener("submit", async (e) => {
@@ -9,7 +12,7 @@ if(form){
     const password = document.getElementById("password").value;
 
     try {
-      const response = await fetch("http://localhost:4000/api/v1/users/login", {
+      const response = await fetch(`${render}/api/v1/users/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -44,12 +47,12 @@ if(testbutton){
 }
 */
 
+
 const profileBtn = document.getElementById("profileBtn");
 if(profileBtn){
   profileBtn.addEventListener("click",async() =>{
-    const token = localStorage.getItem("token");
     try{
-      const response = await fetch("http://localhost:4000/api/v1/users/profile", {
+      const response = await fetch(`${render}/api/v1/users/profile`, {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -63,6 +66,7 @@ if(profileBtn){
         return;
       }
       window.location.href = "PageNotFound.html";
+      alert("response not ok");
       return;
     }catch(error){
       console.error(error);
