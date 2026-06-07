@@ -19,7 +19,7 @@ async function loadProfile(){
             console.log("dashboard activated");
             return;
         }
-        console.log("smthnotright");
+        console.log("smthnotrightindashboard");
         
     }catch(error){
         console.error(error);

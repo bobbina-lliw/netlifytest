@@ -52,26 +52,26 @@ const profileBtn = document.getElementById("profileBtn");
 if(profileBtn){
   profileBtn.addEventListener("click",async() =>{
     try{
-      const response = await fetch(`${render}/api/v1/users/profile`, {
+        const response = await fetch(`${render}/api/v1/users/profile`, {
         method: "GET",
         headers: {
-          "Authorization": `Bearer ${token}`,
+            "Authorization": `Bearer ${token}`,
         }
-      });
-
-      const data = await response.json();
-      
-      if(response.ok){
+        });
+        const data = await response.json();
+        
+        if(!(response.ok)){
+            window.location.href = "PageNotFound.html";
+            console.log("dashboard activated");
+            return;
+        }
         window.location.href = "profile.html";
+        console.log("smthnotrightinscript.js");
         return;
-      }
-      window.location.href = "PageNotFound.html";
-      alert("response not ok");
-      return;
+        
     }catch(error){
-      console.error(error);
-      document.getElementById("message").innerText = "Error connecting to server";
-      return;
+        console.error(error);
+        return;
     }
   })
 }
