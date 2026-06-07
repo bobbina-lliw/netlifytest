@@ -1,5 +1,5 @@
-const render = "https://rendertest-gyk4.onrender.com";
-//const render = "http://127.0.0.1:4000"
+//const render = "https://rendertest-gyk4.onrender.com";
+const render = "http://127.0.0.1:4000"
 const token = localStorage.getItem("token");
 const form = document.getElementById("loginForm");
 
@@ -52,20 +52,24 @@ const profileBtn = document.getElementById("profileBtn");
 if(profileBtn){
   profileBtn.addEventListener("click",async() =>{
     try{
-        const response = await fetch(`${render}/api/v1/users/profile`, {
+        const response = await fetch(`${render}/api/v1/users/profile1`, {
         method: "GET",
         headers: {
             "Authorization": `Bearer ${token}`,
         }
         });
-        const data = await response.json();
+        //const data = await response.text();
         
         if(!(response.ok)){
-            window.location.href = "PageNotFound.html";
+          //alert("issue");  
+          window.location.href = "PageNotFound.html";
+            
             console.log("dashboard activated");
             return;
         }
+        
         window.location.href = "profile.html";
+        //alert("issue");
         console.log("smthnotrightinscript.js");
         return;
         
