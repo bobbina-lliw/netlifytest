@@ -1,4 +1,4 @@
-//const token = localStorage.getItem("token");
+const token = localStorage.getItem("token");
 const render = "https://rendertest-gyk4.onrender.com";
 //const render = "http://127.0.0.1:4000"
 
